@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="2">
+
+<groups>
+<run>
+<include name="Smoke"/>
+</run>
+</groups>
+
+
+<parameter name="URL" value="login.com"/>
+<listeners>
+<listener class-name="prep2_Testng.Listeners"/>
+
+</listeners>
+  <test parallel="classes" thread-count="5" name="Test">
+    <classes>
+      <class name="prep2_Testng.Annotations">
+      <methods>
+      	<exclude name="Test.*"/>
+      </methods>
+      </class>
+    </classes>
+  </test> <!-- Test -->
+  
+  <test name="Personal Loan">
+  	<classes>
+  		<class name="prep2_Testng.PersonalLoan">
+  		</class>
+  </classes>
+  
+ </test>
+
+ <test name="Car Loan">
+  <classes>
+ 	 <class name="prep2_Testng.CarLoan">
+  		<methods>
+  			<exclude name="clAPI"/>
+  			
+ 		</methods>
+ 	</class>
+  </classes>
+ </test>
+</suite> <!-- Suite -->
